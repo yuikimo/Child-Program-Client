@@ -16,7 +16,7 @@ request.get(`/system/course/list`).then((res) => {
 });
 
 function addCourseToCart(id) {
-	if (getToken()) {
+	if (!getToken()) {
 		router.push('/login');
 		return;
 	}
