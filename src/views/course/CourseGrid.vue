@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { createRandomInt } from '@/utils/data';
 import CourseBreadcrumb from '@/components/course/CourseBreadcrumb.vue';
 import request from '@/net';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 import { useAccount } from '@/stores/user';
 import router from '@/router';
 import { getToken } from '@/utils/token';
@@ -17,16 +17,16 @@ request.get(`/system/course/list`).then((res) => {
 
 function addCourseToCart(id) {
 	if (getToken()) {
-		router.push('/login')
-		return
+		router.push('/login');
+		return;
 	}
 	request.post(`/system/cart/add/${id}`).then(() => {
-		account.shoopingCart.count++
+		account.shoopingCart.count++;
 		Swal.fire({
-			title: "添加成功",
-			text: "课程已添加到购物车中",
-			icon: "success"
-		})
+			title: '添加成功',
+			text: '课程已添加到购物车中',
+			icon: 'success',
+		});
 	});
 }
 </script>
@@ -61,9 +61,6 @@ function addCourseToCart(id) {
 							<div
 								class="course-img-4 bg-img"
 								style="background-image: url(/img/bg-img/home-4/shape-2.png)">
-								<div class="course-sub-title">
-									<h6>PHP Beginner</h6>
-								</div>
 								<div class="course-title-img">
 									<img
 										:src="`/img/course/teacher/c-${course.id}.png`"
@@ -138,8 +135,9 @@ function addCourseToCart(id) {
 									</div>
 									<div class="course-buy">
 										<p>
-											<a href="#"
-											@click="addCourseToCart(course.id)">
+											<a
+												href="#"
+												@click="addCourseToCart(course.id)">
 												<i class="icon-icon_cart_alt"></i>
 												&nbsp;
 												<span>添加到购物车</span>
@@ -148,17 +146,6 @@ function addCourseToCart(id) {
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-
-					<div class="col-12">
-						<div class="load-btn-area text-center mt-20">
-							<a
-								class="load-btn"
-								href="#">
-								<i class="icon-icon_document_alt"></i>
-								更多课程
-							</a>
 						</div>
 					</div>
 				</div>

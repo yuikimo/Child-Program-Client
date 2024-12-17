@@ -4,7 +4,7 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import request from '@/net';
 import Swal from 'sweetalert2';
 import router from '@/router';
-import { useAccount } from './stores/user';
+import { useAccount } from '@/stores/user';
 
 const account = useAccount();
 
